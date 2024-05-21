@@ -1,4 +1,6 @@
 import { Container } from "semantic-ui-react";
+import classNames  from "classnames";
+import { TopBar, Footer } from "@/components/Layout"
 import styles from "./BasicLayout.module.scss";
 
 export function BasicLayout(props) {
@@ -10,13 +12,14 @@ export function BasicLayout(props) {
   } = props;
   return (
     <>
-      {/* {Todo: ToBar} */}
-
+      <TopBar isOpenSearch={isOpenSearch}/>
       <Container fluid>
-        {isContainer ? <Container>{children}</Container> : children}
-        </Container>
+        <div className={classNames ({ [styles.relative]: relative })}>
+          {isContainer ? <Container>{children}</Container> : children}
+        </div>
+      </Container>
 
-      {/* {Todo: Footer} */}
+      <Footer />
 
     </>
   );
